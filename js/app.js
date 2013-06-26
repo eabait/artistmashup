@@ -15,8 +15,8 @@
 
   artists.on('add', function(artist) {
 
-    $('.ranking').append('<li><img src="' + artist.get('images')[3]['#text'] + '"</img></li>');
-
+    var liEl = $('<li><img src="' + artist.get('images')[2]['#text'] + '" alt=" '+ artist.get('name') +' "</img></li>').appendTo('.ranking');
+    liEl.addClass('animated rotateInDownLeft');
   });
 
 }());
