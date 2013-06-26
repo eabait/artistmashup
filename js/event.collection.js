@@ -2,45 +2,36 @@ var EventCollection = (function() {
 
   return Backbone.Collection.extend({
 
-    // model: ArtistModel,
+    model: EventModel,
 
-    parse: function(resp) {
-      var artists = resp.topartists.artist;
-      var models = [];
-
-      // _.each(artists, function(artist) {
-      //   models.push({
-      //     name: artist['name'],
-      //     rank: artist['@attr'].rank,
-      //     listeners: artist['listeners'],
-      //     url: artist['url'],
-      //     images: artist['image']
-      //   });
-      // });
-
-      return models;
+    onSuccess: function(data) {
+      var eventList;
+      if (data.events) {
+        eventList = data.events.event;
+        if (eventList && eventList.length) {
+          this.add(eventList);
+        }
+      }
     },
 
-    fetch: function() {
+    onError: function(code, message){
+      console.log(code + ' -> ' + message);
+    },
+
+    fetch: function(artists) {
       var that = this;
-      var def = $.Deferred();
-      LastFmAPI.geo.getTopArtists(
-        {
-          country: 'Argentina',
-          limit: '10'
-        },
-        {
-          success: function(data) {
-            that.parse(data);
-            def.resolve();
+
+      for (var i = 0, length = artists.length; i < length; ++i) {
+        LastFmAPI.artist.getEvents(
+          {
+            artist: artists[i]
           },
-          error: function(code, message){
-            console.log(code + ' -> ' + message);
-            def.reject();
+          {
+            success: _.bind(that.onSuccess, that),
+            error: _.bind(that.onError, that)
           }
-        }
-      );
-      return def;
+        );
+      }
     }
 
   });

@@ -18,7 +18,7 @@ var ArtistCollection = (function() {
         });
       });
 
-      return models;
+      this.add(models);
     },
 
     fetch: function() {
