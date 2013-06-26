@@ -1,3 +1,52 @@
+body {
+  width: 100%;
+  height: 100%;
+
+  background-color: #000;
+  font-size: 14px;
+}
+
+header {
+  height: 10%;
+  width: 100%;
+
+  color: #5181E7;
+
+  font-family: sarina, cursive;
+  font-size: 2em;
+}
+
+header > span {
+  font-family: helvetica;
+  font-size: 0.5em;
+}
+
+footer {
+  height: 10%;
+  width: 100%;
+}
+
+.main-section {
+  height: 85%;
+}
+
 #map {
-  height: 600px;
+  height: 508px;
+  width: 1024px;
+  margin: auto auto;
+}
+
+.ranking > li{
+  display: inline-block;
+  width: 9%;
+  height: 10%;
+}
+
+.leaflet-popup-content {
+  height: 200px;
+  overflow: scroll;
+}
+
+.leaflet-popup-content > img{
+  width: 100%;
 }

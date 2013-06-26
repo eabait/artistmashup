@@ -17,6 +17,12 @@ var EventModel = (function() {
       url: '',
       venue: null,
       website: ''
+    },
+
+    toJSON: function() {
+      var ser = Backbone.Model.prototype.toJSON.apply(this);
+      ser.image = ser.image[3]['#text'];
+      return ser;
     }
 
   });

@@ -12,8 +12,28 @@
 </head>
 <body>
 
-  <div id="map"></div>
+  <header>
+    Last.fm Mashup
+    <span>top-10 ranked artists events</span>
+  </header>
+  <section class="main-section">
+    <div id="map"></div>
+  </section>
+  <footer>
+    <ul class="ranking">
+    </ul>
+  </footer>
 
+  <script type="text/x-handlebars-template" id="popup-template">
+    <a href="{{url}}" target="new"><h4>{{title}}</h4></a>
+    (at: <a href="{{venue.url}}" target="new">{{venue.name}}</a>)
+    <h5>Start date <span>{{startDate}}</span></h5>
+    {{#if endDate}}<h5>End date <span>{{endDate}}</span></h5>{{/if}}
+    <p class="description"></p>
+    <img src="{{image}}"></img>
+  </script>
+
+  <script src="//use.edgefonts.net/sarina.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
   <script src="lib/lastfm.api.js"></script>
@@ -26,6 +46,8 @@
   <script src="js/artist.collection.js"></script>
   <script src="js/event.model.js"></script>
   <script src="js/event.collection.js"></script>
+  <script src="js/popup.view.js"></script>
+  <script src="js/map.view.js"></script>
   <script src="js/app.js"></script>
 
 </body>

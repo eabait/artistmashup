@@ -1,45 +1,22 @@
 (function() {
   var artists = new ArtistCollection();
   var events = new EventCollection();
-
+  var mapView = new MapView({
+    el: '#map',
+    model: events
+  });
   var promiseOnArtist = artists.fetch();
-  var promiseOnEvents;
-
-  var artistList;
 
   promiseOnArtist.done(function() {
-    artistList = artists.pluck('name');
-    events.fetch(artistList);
+    events.fetch(artists.pluck('name'));
   });
 
-  var attribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,';
-  attribution += '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ';
-  attribution += 'Imagery © <a href="http://cloudmade.com">CloudMade</a>';
+  mapView.render();
 
-  var map = L
-    .map('map')
-    .fitWorld()
-    .zoomIn(1);
-  L
-    .tileLayer('http://{s}.tile.cloudmade.com/d672d5e3ac6e4841bd45499967b75414/997/256/{z}/{x}/{y}.png',
-      {
-        attribution: attribution,
-        maxZoom: 18
-      })
-    .addTo(map);
+  artists.on('add', function(artist) {
 
-  events.on('add', function(eventModel) {
-    var location = eventModel.get('venue').location['geo:point'];
-    var lat = location['geo:lat'];
-    var lon = location['geo:long'];
+    $('.ranking').append('<li><img src="' + artist.get('images')[3]['#text'] + '"</img></li>');
 
-    if (lat && lon) {
-      L
-        .marker([lat, lon])
-        .addTo(map)
-        .bindPopup(eventModel.get('title'))
-        .openPopup();
-    }
   });
 
 }());
