@@ -27,7 +27,7 @@ var ArtistCollection = (function() {
       LastFmAPI.geo.getTopArtists(
         {
           country: 'Argentina',
-          limit: '10'
+          limit: '100'
         },
         {
           success: function(data) {
