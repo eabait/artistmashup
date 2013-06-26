@@ -12,4 +12,4 @@ var ArtistModel = (function() {
 
   });
 
-})();
+}());
