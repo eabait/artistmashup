@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <title>Artist Mashup</title>
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+</head>
+<body>
+
+  <header>
+    Last.fm Mashup
+    <span>top-100 ranked artists events</span>
+  </header>
+  <section class="main-section">
+    <div id="map"></div>
+  </section>
+  <footer>
+    <ul class="ranking">
+    </ul>
+  </footer>
+
+  <script type="text/x-handlebars-template" id="popup-template">
+    <a href="{{url}}" target="new"><h4>{{title}}</h4></a>
+    (at: <a href="{{venue.url}}" target="new">{{venue.name}}</a>)
+    <h5>Start date <span>{{startDate}}</span></h5>
+    {{#if endDate}}<h5>End date <span>{{endDate}}</span></h5>{{/if}}
+    <p class="description"></p>
+    <img src="{{image}}"></img>
+  </script>
+
+  <script src="//use.edgefonts.net/source-sans-pro.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+  <script src="lib/lastfm.api.js"></script>
+  <script src="lib/lastfm.api.md5.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone.js"></script>
+  <script src="js/lastfmapi.js"></script>
+  <script src="js/artist.model.js"></script>
+  <script src="js/artist.collection.js"></script>
+  <script src="js/event.model.js"></script>
+  <script src="js/event.collection.js"></script>
+  <script src="js/popup.view.js"></script>
+  <script src="js/map.view.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
