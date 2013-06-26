@@ -11,6 +11,10 @@
     events.fetch(artists.pluck('name'));
   });
 
+  $('header')
+    .css('visibility', 'visible')
+    .addClass('animated fadeIn');
+
   mapView.render();
 
   artists.on('add', function(artist) {
