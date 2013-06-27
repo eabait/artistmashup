@@ -19,8 +19,8 @@
 
   artists.on('add', function(artist) {
 
-    var liEl = $('<li><img src="' + artist.get('images')[2]['#text'] + '" alt=" '+ artist.get('name') +' "</img></li>').appendTo('.ranking');
-    liEl.addClass('animated rotateInDownLeft');
+    var liEl = $('<li><img src="' + artist.get('images')[3]['#text'] + '" alt=" '+ artist.get('name') +' "</img><p><b>'+ artist.get('name') +'</b></p><span>Rank '+ artist.get('rank') +'</span></li>').appendTo('.ranking');
+    liEl.addClass('pin animated rotateInDownLeft');
   });
 
 }());
