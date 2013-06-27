@@ -395,22 +395,26 @@ table {
     border-spacing: 0;
 }
 
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
 body {
   width: 100%;
   height: 100%;
-  background-color: rgb(255, 255, 255);
   font-size: 14px;
 }
 
 header {
-  height: 10%;
+  height: 50px;
   width: 98%;
-  margin-left: 2%;
-  color: rgb(63, 106, 139);
+  line-height: 50px;
+  padding-left: 2%;
+  color: #F3F3F5;
+  background: #343B41;
+  border-bottom: 1px solid #252B2F;
   font-family: source-sans-pro, sans-serif;
   font-size: 2em;
-  line-height: 100%;
-
   visibility: hidden;
 }
 
@@ -421,33 +425,156 @@ header > span {
 
 footer {
   height: 10%;
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px 0;
+  width: 98%;
+  background: #4D5A63;
+  border-top: 10px solid #2B82CB;
+  padding: 5px 1%;
+}
+
+.ranking {
+  padding: 0;
 }
 
 .main-section {
   height: 85%;
-  background: #2f2f2f;
+  background: #2F2F2F;
 }
 
 #map {
-  height: 508px;
-  width: 1024px;
-  margin: auto auto;
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.ranking > li{
-  display: inline-block;
-  width: 9%;
-  height: 10%;
+.leaflet-popup-content-wrapper {
+  border-radius: 4px;
+  padding: 0;
+  overflow: hidden;
 }
 
 .leaflet-popup-content {
-  height: 200px;
-  overflow: scroll;
+  width: 300px;
+  max-height: 350px;
+  margin: 0;
 }
 
-.leaflet-popup-content > img{
+.leaflet-popup-content img {
   width: 100%;
+  max-height: 150px;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+.popup-header-title {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.popup-header {
+  padding: 0 10px;
+}
+
+.popup-header a {
+  text-decoration: none;
+}
+
+.popup-desc {
+  min-height: 25px;
+  max-height: 150px;
+  overflow: auto;
+  background: #dfeef8;
+  border-top: 1px solid #A2B7C5;
+  border-bottom: 1px solid #99ABB8;
+  margin: 5px 0;
+  padding: 5px 10px;
+}
+
+.date-list {
+  list-style: none;
+  padding-left: 21px;
+  background: url(../images/calendar.png) no-repeat center left;
+}
+
+.ranking {
+  -webkit-column-count: 5;
+     -moz-column-count: 5;
+      -ms-column-count: 5;
+          column-count: 5;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+      -ms-column-gap: 10px;
+          column-gap: 10px;
+  -webkit-column-fill: auto;
+     -moz-column-fill: auto;
+          column-fill: auto;
+}
+
+.pin {
+  display: inline-block;
+  margin: 0 2px 8px;
+  padding: 15px 5px 8px;
+  text-align: center;
+  background: #EEE;
+  border: 1px solid #BBB;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  -webkit-column-break-inside: avoid;
+     -moz-column-break-inside: avoid;
+          column-break-inside: avoid;
+  -webkit-transition: all .2s ease;
+     -moz-transition: all .2s ease;
+       -o-transition: all .2s ease;
+          transition: all .2s ease;
+}
+
+.pin img {
+  width: 100%;
+  border-bottom: 1px solid #BBB;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+.pin p {
+  font: 12px/18px Arial, sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+.pin span {
+  font: 10px/12px Arial, sans-serif;
+  color: #666;
+}
+
+.pin:hover {
+  background: #CCC;
+}
+
+@media (min-width: 500px) {
+  .ranking {
+    -webkit-column-count: 4;
+       -moz-column-count: 4;
+        -ms-column-count: 4;
+            column-count: 4;
+  }
+}
+
+@media (min-width: 960px) {
+  .ranking {
+    -webkit-column-count: 5;
+       -moz-column-count: 5;
+        -ms-column-count: 5;
+            column-count: 5;
+  }
+}
+
+@media (min-width: 1100px) {
+  .ranking {
+    -webkit-column-count: 7;
+       -moz-column-count: 7;
+        -ms-column-count: 7;
+            column-count: 7;
+  }
 }
