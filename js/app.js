@@ -19,7 +19,7 @@
 
   artists.on('add', function(artist) {
 
-    var liEl = $('<li><img src="' + artist.get('images')[3]['#text'] + '" alt=" '+ artist.get('name') +' "</img><p><b>'+ artist.get('name') +'</b></p><span>Rank '+ artist.get('rank') +'</span></li>').appendTo('.ranking');
+    var liEl = $('<li><a href="https://www.youtube.com/results?search_query=' + artist.get('name') + '&filters=playlist&lclk=playlist" target="new"><img src="' + artist.get('images')[3]['#text'] + '" alt=" '+ artist.get('name') +' "</img></a><p><b>'+ artist.get('name') +'</b></p><span>Rank '+ artist.get('rank') +'</span></li>').appendTo('.ranking');
     liEl.addClass('pin animated rotateInDownLeft');
   });
 
