@@ -14,16 +14,20 @@ var MapView = (function() {
 
       //Create map
       this.map = L
-        .map('map')
-        .fitWorld()
-        .zoomIn(1);
+        .map('map',
+          {
+            minZoom: 2,
+            maxZoom: 5
+          }
+        )
+        .fitWorld();
 
       //Fetch tiles from CloudMade
       L
         .tileLayer('http://{s}.tile.cloudmade.com/d672d5e3ac6e4841bd45499967b75414/100665/256/{z}/{x}/{y}.png',
           {
             attribution: attribution,
-            maxZoom: 18
+            maxZoom: 5
           })
         .addTo(this.map);
 
@@ -43,8 +47,7 @@ var MapView = (function() {
         L
           .marker([lat, lon])
           .addTo(this.map)
-          .bindPopup(popUpView.render().$el[0])
-          .openPopup();
+          .bindPopup(popUpView.render().$el[0]);
       }
     }
   });

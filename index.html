@@ -26,12 +26,22 @@
   </footer>
 
   <script type="text/x-handlebars-template" id="popup-template">
-    <a href="{{url}}" target="new"><h4>{{title}}</h4></a>
-    (at: <a href="{{venue.url}}" target="new">{{venue.name}}</a>)
-    <h5>Start date <span>{{startDate}}</span></h5>
-    {{#if endDate}}<h5>End date <span>{{endDate}}</span></h5>{{/if}}
-    <p class="description"></p>
     <img src="{{image}}"></img>
+    <section class="popup-header">
+        <span class="popup-header-title">
+          <a href="{{url}}" target="new">
+            {{title}}
+          </a>
+        </span>
+        (at: <a href="{{venue.url}}" target="new">{{venue.name}}</a>)
+    </section>
+    <section class="popup-desc">
+        <ul class="date-list">
+          <li>Start date <span>{{startDate}}</span></li>
+          {{#if endDate}}<li>End date <span>{{endDate}}</span></li>{{/if}}
+        </ul>
+        <p class="description"></p>
+    </section>
   </script>
 
   <script src="//use.edgefonts.net/source-sans-pro.js"></script>
