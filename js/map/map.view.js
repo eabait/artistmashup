@@ -24,7 +24,7 @@ var MapView = (function() {
 
       //Fetch tiles from CloudMade
       L
-        .tileLayer('http://{s}.tile.cloudmade.com/d672d5e3ac6e4841bd45499967b75414/100665/256/{z}/{x}/{y}.png',
+        .tileLayer('http://{s}.tile.cloudmade.com/d672d5e3ac6e4841bd45499967b75414/5050/256/{z}/{x}/{y}.png',
           {
             attribution: attribution,
             maxZoom: 5
