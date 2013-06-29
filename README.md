@@ -1,7 +1,7 @@
 Artist Mashup
 ============
 Artist Mashup fetch the top-100 ranked artist in Argentina from Last.fm. For each artist it fetch 
-its next events and display them in a map. An artists ranking is rendered using a multi-column layout, where each
+its next events and display them in a map. A ranking of artists is rendered using a multi-column layout, where each
 artist is depicted using an image that links to a Youtube search for its playlists.
 
 This demo shows:
